@@ -8,7 +8,8 @@
     "start": "NODE_ENV=production babel-node -- server.js",
     "test": "npm run setup:test && NODE_ENV=test mocha --require @babel/register ./server/test/**/*.js --timeout 2000000",
     "dev": "NODE_ENV=development nodemon --watch server --exec babel-node -- server.js",
-    "db:migrate": "sequelize db:migrate:undo:all && sequelize db:migrate",
+    "db:migrate:undo": "sequelize db:migrate:undo:all",
+    "db:migrate": "sequelize db:migrate",
     "db:migrate:test": "NODE_ENV=test sequelize db:migrate:undo:all && NODE_ENV=test sequelize db:migrate",
     "setup:test": "npm run db:migrate:test && NODE_ENV=test sequelize db:seed:all",
     "db:seed": "sequelize db:seed:all"

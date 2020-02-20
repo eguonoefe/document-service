@@ -2,20 +2,20 @@ require('dotenv').config();
 
 module.exports = {
   development: {
-    username: 'eguono',
-    password: null,
-    database: 'document',
-    host: 'localhost',
-    port: 5432,
+    username: process.env.PGUSERNAME,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
     dialect: 'postgres',
     logging: false
   },
   test: {
-    username: 'eguono',
-    password: null,
-    database: 'document_test',
-    host: 'localhost',
-    port: 5432,
+    username: process.env.PGUSERNAME,
+    password: process.env.PGPASSWORD,
+    database: process.env.PGDATABASE_TEST,
+    host: process.env.PGHOST,
+    port: process.env.PGPORT,
     dialect: 'postgres',
     logging: false
   },

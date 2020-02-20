@@ -57,13 +57,13 @@ The following features make up the Document Management System API:
 - **[Sequelize](http://docs.sequelizejs.com/)** - Sequelize is a promise-based ORM for Node.js which supports the dialects of PostgreSQL and features solid transaction support, relations, read replication and more.
 
 ### **Installation Steps**
-* Ensure you have `node` installed or install [Node](https://nodejs.org/en/download/)
-* Clone the project repository from your terminal `git clone https://github.com/andela-eefekemo/kudos-dms-api.git`
-* Change directory into the `kudos-dms-api` directory
-* Run `npm install` to install the dependencies in the `package.json` file
-* Run `npm run dev` to start the project
-* Run `npm test` to run the api tests
-* Use [Postman](https://www.getpostman.com/) or any API testing tool of your choice to access the endpoints
+* Clone the repository
+* Create a `.env` file from the example file `.env.example`
+* Ensure you have `docker` installed on your local machine. You can check this by running `docker --version`
+* Run `docker-compose build` to build the service images
+* Run `docker-compose up` to start up the containers for the services
+* Open application locally on `localhost:7000`
+* To remove volume and container run `docker-compose down`
 
 ### **Endpoints**
 **N/B:** For all endpoints that require authentication, use \

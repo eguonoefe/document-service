@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+
+  document-service:
+    container_name: document-service
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - '.:/app'
+      - '/app/node_modules'
+    ports:
+      - '7000:7000'
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - NODE_ENV=development
+      - HASH_PASSWORD=${HASH_PASSWORD}
+      - SECRET=${SECRET}
+      - PGHOST=host.docker.internal
+      - PGPASSWORD=${PGPASSWORD}
+      - PGDATABASE=${PGDATABASE}
+      - PGUSERNAME=${PGUSERNAME}
+      - PGPORT=${PGPORT}
+    depends_on:
+      - postgres
+  
+  postgres:
+    image: postgres:10.4
+    container_name: "postgres"
+    ports:
+      - "35432:5432"
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      POSTGRES_USER: ${PGUSERNAME}
+      POSTGRES_PASSWORD: ${PGPASSWORD}
+      POSTGRES_DB: ${PGDATABASE}
+      POSTGRES_HOST: ${PGHOST}
+      POSTGRES_PORT: ${PGPORT}
+    volumes:
+      - ./tmp/db:/var/lib/postgresql/data
+    
+
