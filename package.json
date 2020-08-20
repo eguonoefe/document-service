@@ -28,7 +28,7 @@
     "@babel/core": "^7.6.4",
     "@babel/node": "^7.8.4",
     "@babel/preset-env": "^7.6.3",
-    "bcrypt": "^3.0.8",
+    "bcrypt": "^5.0.0",
     "body-parser": "^1.17.2",
     "colors": "^1.1.2",
     "cors": "^2.8.5",
